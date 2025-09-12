@@ -42,16 +42,17 @@ Under "Simulation", modify the Run Time (e.g., set to 1000ns).<br>
 **4:1 MUX Gate-Level Implementation:**
 ```
 
-module mux_4_1_gat(a,s,out);
-input [3:0]a;
-input [1:0]s;
+module mux_4to1(out,I0,I1,I2,I3,S0,S1);
 output out;
-wire [3:0]w;
-and (w[0],in[0],~s[1],~s[0]);
-and (w[1],in[1],~s[1],s[0]);
-and (w[2],in[2],s[1],~s[0]);
-and (w[3],in[3],s[1],s[0]);
-or (out,w[0],w[1],w[2],w[3]);
+input I0,I1,I2,I3,S1,S0;
+wire S0n, S1n, Y0, Y1, Y2, Y3;
+not (S1n, S1);
+not (S0n, S0);
+and (Y0, S1n, S0n, I0);
+and (Y1, S1n, S0, I1);
+and (Y2, S1, S0n, I2);
+and (Y3, S1, S0, I3);
+or  (out, Y0, Y1, Y2, Y3);
 endmodule
 ```
 **4:1 MUX Data Flow Implementation:**
@@ -168,6 +169,12 @@ Time=18 | s[1]=0 s[0]=0 | Inputs: a[0]=1 a[1]=1 a[2]=1 a[3]=1
 
 ```
 **Output waveform** <br>
+GATE-LEVEL MODELING
+
+DATAFLOW MODELING
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/263ba5a6-bf9e-4f9b-a2e7-2274a63495fb" />
+
 <br>
 Test Beanch
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/35ed6a8c-aa10-49ea-b03f-196231969c8a" />
