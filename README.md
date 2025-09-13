@@ -176,24 +176,32 @@ endmodule
 4:1 MUX Behavioral Test bench Implementation
 ```
 module mux4to1_bhv_tb;
-    reg [0:3]I;
-    reg [1:0]S;
+    reg [0:3] I;
+    reg [1:0] S;
     wire Y;
-    mux4to1_bhv dut(.I(I),.S(S),.Y(Y));
-    initial 
-    begin
+    mux4to1_bhv dut (
+        .I(I),
+        .S(S),
+        .Y(Y)
+    );
+    initial begin
+        
         I = 4'b1010;
-        S = 2'b00;
-        #100
-        I = 4'b1010;
-        S = 2'b01;
-        #100
-        I = 4'b1010;
-        S = 2'b10;
-        #100
-        I = 4'b1010;
-        S = 2'b11;
-    end
+        S = 2'b00; #50; 
+        S = 2'b01; #50;
+        S = 2'b10; #50; 
+        S = 2'b11; #50; 
+        I = 4'b1100;
+        S = 2'b00; #50; 
+        S = 2'b01; #50; 
+        S = 2'b10; #50; 
+        S = 2'b11; #50; 
+        I = 4'b0110;
+        S = 2'b00; #50; 
+        S = 2'b01; #50;
+        S = 2'b10; #50; 
+        S = 2'b11; #50; 
+        end
 endmodule
 ```
 4:1 MUX Structural Test bench Implementation
@@ -221,51 +229,7 @@ module mux4to1_str_tb;
      end
 endmodule
 ```
-Sample Output:
-4:1 MUX Gate-Level Implementation
-```
-Time=00 | S1=0 S2=0 | Inputs: I0=1 I1=0 I2=1 I3=0
-        | out_gate=1
-Time=100 | S1=0 S2=1 | Inputs: I0=1 I1=0 I2=1 I3=0
-        | out_gate=0
-Time=200 | S1=1 S2=0 | Inputs: I0=1 I1=0 I2=1 I3=0
-        | out_gate=1
-Time=300 | S1=1 S2=1 | Inputs: I0=1 I1=0 I2=1 I3=0
-        | out_gate=0
-```
-4:1 MUX Data Flow Implementation
-```
-Time=00 | s[1]=0 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
-        | out_dataflow=1
-Time=100 | s[1]=0 s[0]=1 | Inputs: a=1 b=0 c=1 d=0
-        | out_dataflow=0
-Time=200 | s[1]=1 s[0]=0 | Inputs: a=1 b=0 c=1 d=0
-        | out_dataflow=1
-Time=300 | s[1]=1 s[0]=1 | Inputs: a=1 b=0 c=1 d=0
-        | out_dataflow=0
-```
-4:1 MUX Behavioral Implementation
-```
-Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_behavioral=1
-Time=100 | S[1]=0 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_behavioral=0
-Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_behavioral=1
-Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_behavioral=0
-```
-4:1 MUX Structural Implementation
-```
-Time=00 | S[1]=0 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_structural=1
-Time=100 | S[1]=0 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_structural=0
-Time=200 | S[1]=1 S[0]=0 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_structural=1
-Time=300 | S[1]=1 S[0]=1 | Inputs: I[0]=1 I[1]=0 I[2]=1 I[3]=0
-        | out_structural=0
-```
+
 Output waveform
 Gate-Level:
 
@@ -276,6 +240,7 @@ Data Flow:
 
 
 Behavioral:
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2fbc5f4a-7ffb-4bd9-8cbd-3a489dca12a0" />
 
 
 Structural:
