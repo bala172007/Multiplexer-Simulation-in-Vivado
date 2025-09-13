@@ -203,26 +203,20 @@ endmodule
 4:1 MUX Structural Test bench Implementation
 ```
 module mux4to1_str_tb;
-    reg [0:3]I;
-    reg [1:0]S;
+    reg [0:3] I;
+    reg [1:0] S;
     wire Y;
-    
     mux4to1_str dut(.I(I), .S(S), .Y(Y));
-    
-    initial
-    begin
-        I = 4'b1010;
-        S = 2'b00;
-        #100
-        I = 4'b1010;
-        S = 2'b01;
-        #100
-        I = 4'b1010;
-        S = 2'b10;
-        #100 
-        I = 4'b1010;
-        S = 2'b11;
-     end
+    initial begin
+        I = 4'b1010; S = 2'b00; #100;
+        I = 4'b1010; S = 2'b01; #100;
+        I = 4'b1010; S = 2'b10; #100;
+        I = 4'b1010; S = 2'b11; #100;
+        I = 4'b1100; S = 2'b00; #100;
+        I = 4'b1100; S = 2'b01; #100;
+        I = 4'b1100; S = 2'b10; #100;
+        I = 4'b1100; S = 2'b11; #100;
+    end
 endmodule
 ```
 
@@ -240,6 +234,7 @@ Behavioral:
 
 
 Structural:
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f91ea1be-dfc5-4102-a7f6-159c11001d90" />
 
 
 **Conclusion:** <br>
