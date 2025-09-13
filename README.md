@@ -272,6 +272,7 @@ Gate-Level:
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2465da8b-a010-4de4-a95d-7263bacb2072" />
 
 Data Flow:
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b0b83e0d-dae1-4985-aabd-e98ec9e30fd3" />
 
 
 Behavioral:
