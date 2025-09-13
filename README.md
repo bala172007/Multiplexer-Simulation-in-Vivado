@@ -39,7 +39,7 @@ Under "Simulation", modify the Run Time (e.g., set to 1000ns).<br>
 <br>
 
 **Verilog Code:** <br>
-4:1 MUX Gate-Level Implementation:
+**4:1 MUX Gate-Level Implementation:**
 ```
 module mux4to1(I0,I1,I2,I3,S1,S2,Y);
     input I0,I1,I2,I3,S1,S2;
@@ -54,7 +54,7 @@ module mux4to1(I0,I1,I2,I3,S1,S2,Y);
     or (Y,a,b,c,d);    
 endmodule
 ```
-4:1 MUX Data Flow Implementation:
+**4:1 MUX Data Flow Implementation:**
 ```
 module mux4to1_df(A,B,C,D,S1,S0,Y);
     input A,B,C,D,S1,S0;
@@ -67,7 +67,7 @@ module mux4to1_df(A,B,C,D,S1,S0,Y);
                                          
 endmodule
 ```
-4:1 MUX Behavioral Implementation:
+**4:1 MUX Behavioral Implementation:**
 ```
 module mux4to1_bhv(I,S,Y);
     input wire [0:3] I;
@@ -84,7 +84,7 @@ module mux4to1_bhv(I,S,Y);
     end
 endmodule
 ```
-4:1 MUX Structural Implementation:
+**4:1 MUX Structural Implementation:**
 ```
 module mux2to1(A,B,S,Y);
     input A,B,S;
@@ -101,8 +101,8 @@ module mux4to1_str(I,S,Y);
     mux2to1 m3(.A(y1), .B(y2), .S(S[1]), .Y(Y));
 endmodule
 ```   
-Testbench Implementation:
-4:1 MUX Gate-Level Test bench Implementation
+**Testbench Implementation:**
+**4:1 MUX Gate-Level Test bench Implementation**
 ```
 module mux4to1_tb;
     reg I0_t,I1_t,I2_t,I3_t,S1_t,S2_t;
@@ -141,7 +141,7 @@ module mux4to1_tb;
 endmodule
 ```
 
-4:1 MUX Data Flow Test bench Implementation
+**4:1 MUX Data Flow Test bench Implementation**
 ```
 module mux4to1_df_tb;
     reg a, b, c, d;
@@ -169,7 +169,7 @@ module mux4to1_df_tb;
 endmodule
   
 ```
-4:1 MUX Behavioral Test bench Implementation
+**4:1 MUX Behavioral Test bench Implementation**
 ```
 module mux4to1_bhv_tb;
     reg [0:3] I;
@@ -200,7 +200,7 @@ module mux4to1_bhv_tb;
         end
 endmodule
 ```
-4:1 MUX Structural Test bench Implementation
+**4:1 MUX Structural Test bench Implementation**
 ```
 module mux4to1_str_tb;
     reg [0:3] I;
@@ -220,20 +220,23 @@ module mux4to1_str_tb;
 endmodule
 ```
 
-Output waveform
-Gate-Level:
+**Output waveform**
+**Gate-Level:**
 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2465da8b-a010-4de4-a95d-7263bacb2072" />
 
-Data Flow:
+**Data Flow:**
+
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/b0b83e0d-dae1-4985-aabd-e98ec9e30fd3" />
 
 
-Behavioral:
+**Behavioral:**
+
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2fbc5f4a-7ffb-4bd9-8cbd-3a489dca12a0" />
 
 
-Structural:
+**Structural:**
+
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/f91ea1be-dfc5-4102-a7f6-159c11001d90" />
 
 
