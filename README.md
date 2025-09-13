@@ -148,40 +148,30 @@ endmodule
 4:1 MUX Data Flow Test bench Implementation
 ```
 module mux4to1_df_tb;
-    reg a,b,c,d,s1,s0;
+    reg a, b, c, d;
+    reg s1, s0;
     wire y;
-    mux4to1_df dut(.A(a),.B(b),.C(c),.D(d),.S1(s1),.S0(s0),.Y(y));
-    initial 
+    mux4to1_df dut (
+        .A(a), .B(b), .C(c), .D(d),
+        .S1(s1), .S0(s0), .Y(y)
+    );initial 
     begin
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b1;
-        d = 1'b0;
-        s1 = 1'b0;
-        s0 = 1'b0;
-        #100
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b1;
-        d = 1'b0;
-        s1 = 1'b0;
-        s0 = 1'b1;
-        #100
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b1;
-        d = 1'b0;
-        s1 = 1'b1;
-        s0 = 1'b0;
-        #100
-        a = 1'b1;
-        b = 1'b0;
-        c = 1'b1;
-        d = 1'b0;
-        s1 = 1'b1;
-        s0 = 1'b1;
+        a = 1'b0;
+        b = 1'b1;
+        c = 1'b0;
+        d = 1'b1;
+        s1 = 1'b0; s0 = 1'b0; #100; 
+        s1 = 1'b0; s0 = 1'b1; #100; 
+        s1 = 1'b1; s0 = 1'b0; #100; 
+        s1 = 1'b1; s0 = 1'b1; #100; 
+        a = 1'b1; b = 1'b1; c = 1'b0; d = 1'b0;
+        s1 = 1'b0; s0 = 1'b0; #100; 
+        s1 = 1'b0; s0 = 1'b1; #100; 
+        s1 = 1'b1; s0 = 1'b0; #100; 
+        s1 = 1'b1; s0 = 1'b1; #100; 
     end
 endmodule
+  
 ```
 4:1 MUX Behavioral Test bench Implementation
 ```
